@@ -1,0 +1,98 @@
+// Шарафутдинова Карина Рузалиновна, группа 05-901
+// Задание 4
+
+//Создать класс Money, разработав следующие элементы класса: Поля: int first (номинал
+//купюры), int second(количество купюр).Конструктор, позволяющий создать экземпляр
+//класса с заданными значениям полей.Методы, позволяющие: вывести номинал и
+//количество купюр; определить, хватит ли денежных средств на покупку товара на сумму N
+//рублей.определить, сколько шт товара стоимости n рублей можно купить на имеющиеся
+//денежные средства.Свойства: позволяющее получить - установить значение полей
+//(доступное для чтения и записи); позволяющее рассчитать сумму денег(доступное только для чтения). 
+
+
+#include <iostream>
+using namespace std;
+
+class Money {
+private:
+	int first;
+	int second;
+	int sum;
+public:
+	Money() {};
+	Money(int F, int S, int summa)
+	{
+		 first=F;
+		 second=S;
+		 sum=summa;
+	}
+	void inf()
+	{
+		cout << "Номинал купюр=" << first<<"  " << "Количество купюр=" << second<<"\n";
+	}
+	void Buy()
+	{
+		int N;
+		cout << "Введите стоимость N \n";
+	    cin>>N;
+		if (sum>= N)
+		{
+			cout << "Денежных средств хватит на покупку товара \n";
+		}
+		else
+		{
+			cout << "Денежных средств не хватит на покупку товара \n";
+		}
+	}
+	void Buy2()
+	{
+		int n, k;
+		cout << "Введите цену n \n";
+		cin>>n;
+		k = sum / n;
+		cout << "по данной цене на всю сумму возможно купить " << k << " элементов товара";
+
+	}
+		void setBuy(int F, int S, int summa)
+		{
+			first = F;
+			second = S;
+			sum = summa;
+		}
+		void setBuy2(int F, int S, int summa)
+		{
+			first = F;
+			second = S;
+			sum = summa;
+	    }
+		void setinf(int F, int S)
+		{
+			first = F;
+				second = S;
+		}
+};
+
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int F, S, summa;
+	cout << "Введите номинал купюр \n";
+	cin >> F;
+	cout << "Введите количество купюр \n";
+	cin >> S;
+	summa=F*S;
+	Money objMoney;
+	objMoney.setinf(F,S);
+	objMoney.inf();
+	objMoney.setBuy(F, S, summa);
+	objMoney.Buy();
+	objMoney.setBuy2(F, S, summa);
+	objMoney.Buy2();
+
+
+
+
+
+	return 0;
+}
